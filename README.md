@@ -11,7 +11,7 @@ preferably use your name to name it so its organized.
 That way, others can't edit it and multiple people don't work on the same file at the 
 same time.
 
-For example, I need Elliot's Board.java file, I can send a pull request to his branch. 
+For example, I need Elliot's Board.java file, I can send a pull request to the "Elliot" branch. 
 From there, I can "edit" his file but not directly change it (Google Doc commenting).
 Then Elliot can view my changes and manage it from there.
 
