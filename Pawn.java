@@ -57,5 +57,8 @@ public class Pawn implements Piece{
 	public boolean bOrW(){
 		return c;
 	}
+	public String toString(){
+		return "Pawn";
+	}
 }
 
