@@ -91,4 +91,7 @@ public class Knight()
 		}
 		return moves;
 	}
+	public String toString(){
+		return "Knight";
+	}
 }
