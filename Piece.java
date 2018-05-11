@@ -6,5 +6,6 @@ public interface Piece
 	public boolean isAlive();
 	public String getID();
 	public int getBorW(); //0 = black; 1 = white
+	public String toString();
 }
 
