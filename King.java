@@ -36,4 +36,7 @@ public class King implements Piece{
 	}
 	public int getID()
 	{return 99;}
+	public String toString(){
+		return "King";
+	}
 }
