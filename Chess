@@ -1,0 +1,25 @@
+public class Chess{
+    Player p1;
+    Player p2;
+    Piece[][] whiteSide;
+    Piece[][] blackSide;
+    int Rows;
+    int Cols;
+    public Chess(){
+      Rows = 8;
+      Cols = 8;
+      p1 = new Player("Player 1");
+      p2 = new Player("Player 2");
+      whiteSide = new Piece[Rows][Cols];
+      blackSide = new Piece[Rows][Cols];
+      createBoard();
+    }
+    public void createBoard(){
+      for(int i = 0; i< Cols; i++){
+         whiteSide[6][i] = new Pawn(1,i,true);
+         blackSide[6][i] = new Pawn(1,i,false);
+         whiteSide[1][i] = new Pawn(1,i,false);
+         blackSide[1][i] = new Pawn(1,i,true);
+      }
+    }
+}
