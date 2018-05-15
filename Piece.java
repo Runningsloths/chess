@@ -7,5 +7,6 @@ public interface Piece
 	public String getID();
 	public boolean borW(); //0 = black; 1 = white
 	public String toString();
+	public void implementMove();
 }
 
