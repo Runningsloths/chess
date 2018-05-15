@@ -19,4 +19,10 @@ public class Position
 	{
 		return "(" + x + "," + y + ")";
 	}
+	public void setRow(int z){
+		x=z;
+	}
+	public void setCol(int v){
+		y = v;
+	}
 }
