@@ -1,14 +1,14 @@
 public class Pawn implements Piece{
 	int Rows;
 	int Cols;
-	Pos pos;
+	Position pos;
 	boolean alive;
 	boolean c;
 	int move;
 	public Pawn(int x, int y, boolean color){
 	  Rows = x;
 	  Cols = y;
-	  pos = new Pos(Rows, Cols);
+	  pos = new Position(Rows, Cols);
 	  alive = false;
 	  c = color;
 	  move = 0;
@@ -16,25 +16,23 @@ public class Pawn implements Piece{
 	public void implementMove(){
 		move++;
 	}
-	public ArrayList<Pos> getMoves(Piece[][] board){
-		ArrayList<Pos> m = new ArrayList<Pos>();
-		if(c){
-			if(move == 0){
-				if(board[pos.getX()-2][pos.getY()] == null){
-					m.add(new Pos(pos.getX()-2, pos.getY()));
-				}
+	public ArrayList<Position> getMoves(Piece[][] board){
+		ArrayList<Position> m = new ArrayList<Position>();
+		if(move == 0){
+			if(board[pos.getX()-2][pos.getY()] == null){
+				m.add(new Position(pos.getX()-2, pos.getY()));
 			}
-			if(pos.getX()-1<=0){
-				if(board[pos.getX()-1][pos.getY()] == null){
-					m.add(new Pos(pos.getX() - 1, pos.getY()));
+		}
+		if(pos.getX()-1<=0){
+			if(board[pos.getX()-1][pos.getY()] == null){
+				m.add(new Position(pos.getX() - 1, pos.getY()));
+			}
+			if(pos.getY()-1<=0||pos.getY()+1<Cols){
+				if(board[pos.getX()-1][pos.getY()+1] != null&&board[pos.getX()-1][pos.getY()+1].bOrW() != c){
+					m.add(new Position(pos.getX()-1, pos.getY()+1));
 				}
-				if(pos.getY()-1<=0||pos.getY()+1<Cols){
-					if(board[pos.getX()-1][pos.getY()+1] != null&&board[pos.getX()-1][pos.getY()+1].bOrW() != c){
-						m.add(new Pos(pos.getX()-1, pos.getY()+1));
-					}
-					if(board[pos.getX()-1][pos.getY()-1] != null&&board[pos.getX()-1][pos.getY()-1].bOrW() != c){
-						m.add(new Pos(pos.getX()-1, pos.getY()-1));
-					}
+				if(board[pos.getX()-1][pos.getY()-1] != null&&board[pos.getX()-1][pos.getY()-1].bOrW() != c){
+					m.add(new Position(pos.getX()-1, pos.getY()-1));
 				}
 			}
 		}
@@ -42,10 +40,10 @@ public class Pawn implements Piece{
 	public int getID(){
 		return 1;
 	}
-	public Pos getPos(){
+	public Position getPos(){
 		return pos;
 	}
-	public void move(Pos p){
+	public void move(Position p){
 		pos = p;
 	}
 	public boolean isAlive(){
