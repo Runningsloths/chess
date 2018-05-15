@@ -1,4 +1,4 @@
-public class Pawn implements Piece{
+public class Bishop implements Piece{
 	int Rows;
 	int Cols;
 	Position pos;
