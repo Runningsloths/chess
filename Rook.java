@@ -1,14 +1,10 @@
 public class Rook implements Piece{
-	int Rows;
-	int Cols;
 	Position pos;
 	boolean alive;
 	boolean c;
 	int move;
 	public Rook(int x, int y, boolean color){
-	  Rows = x;
-	  Cols = y;
-	  pos = new Position(Rows, Cols);
+	  pos = new Position(x, y);
 	  alive = false;
 	  c = color;
 	  move = 0;
@@ -17,28 +13,55 @@ public class Rook implements Piece{
 		move++;
 	}
 	public ArrayList<Position> getMoves(Piece[][] board){
+  		boolean blocked = false;
+		int Rows = board.length;
+		int Cols = board[0].length;
 		ArrayList<Position> m = new ArrayList<Position>();
-		if(move == 0){
-			if(board[pos.getX()-2][pos.getY()] == null){
-				m.add(new Position(pos.getX()-2, pos.getY()));
-			}
-		}
-		if(pos.getX()-1<=0){
-			if(board[pos.getX()-1][pos.getY()] == null){
-				m.add(new Position(pos.getX() - 1, pos.getY()));
-			}
-			if(pos.getY()-1<=0||pos.getY()+1<Cols){
-				if(board[pos.getX()-1][pos.getY()+1] != null&&board[pos.getX()-1][pos.getY()+1].bOrW() != c){
-					m.add(new Position(pos.getX()-1, pos.getY()+1));
-				}
-				if(board[pos.getX()-1][pos.getY()-1] != null&&board[pos.getX()-1][pos.getY()-1].bOrW() != c){
-					m.add(new Position(pos.getX()-1, pos.getY()-1));
-				}
-			}
-		}
+  	  	int counterR = pos.getX()-1;
+	    	int counterC = pos.getY();
+		while(counterR>= 0&&!blocked){
+      			if(board[counterR][counterC] == null||board[counterR][counterC].bOrW() == !c){
+          			m.add(new Position(counterR, counterC));
+      			}	
+      			else{
+     			     blocked = true;
+      			}
+    			counterR = counterR--;
+    		}
+    		counterR = pos.getX()+1;
+    		while(counterR < Rows&&!blocked){
+      			if(board[counterR][counterC] == null||board[counterR][counterC].bOrW() == !c){
+          			m.add(new Position(counterR, counterC));
+      			}
+      			else{
+     			     blocked = true;
+      			}
+      			counterR = counterR++;
+    		}
+    		counterR = pos.getX();
+   		counterC = pos.getY()+1;
+    		while(counterC<Cols&&!blocked){
+      			if(board[counterR][counterC] == null||board[counterR][counterC].bOrW() == !c){
+         			 m.add(new Position(counterR, counterC));
+      			}
+      			else{
+          			blocked = true;
+      			}
+      			counterC = counterC++;
+    		}
+    		counterC = pos.getY()-1;
+    		whilecounterC>=0&&!blocked){
+      			if(board[counterR][counterC] == null||board[counterR][counterC].bOrW() == !c){
+          			m.add(new Position(counterR, counterC));
+      			}
+      			else{
+          			blocked = true;
+      			}
+      			counterC = counterC--;
+    		}
 	}
 	public int getID(){
-		return 1;
+		return 5;
 	}
 	public Position getPos(){
 		return pos;
