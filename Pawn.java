@@ -1,14 +1,10 @@
 public class Pawn implements Piece{
-	int Rows;
-	int Cols;
 	Position pos;
 	boolean alive;
 	boolean c;
 	int move;
 	public Pawn(int x, int y, boolean color){
-	  Rows = x;
-	  Cols = y;
-	  pos = new Position(Rows, Cols);
+	  pos = new Position(x, y);
 	  alive = false;
 	  c = color;
 	  move = 0;
@@ -17,6 +13,8 @@ public class Pawn implements Piece{
 		move++;
 	}
 	public ArrayList<Position> getMoves(Piece[][] board){
+		int Rows = board.length;
+		int Cols = board[0].length;
 		ArrayList<Position> m = new ArrayList<Position>();
 		if(move == 0){
 			if(board[pos.getX()-2][pos.getY()] == null){
