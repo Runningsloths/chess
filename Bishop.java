@@ -1,3 +1,4 @@
+import java.util.*;
 public class Bishop implements Piece{
 	Position pos;
 	boolean alive;
