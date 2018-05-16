@@ -1,3 +1,4 @@
+import java.util.*;
 public class Rook implements Piece{
 	Position pos;
 	boolean alive;
