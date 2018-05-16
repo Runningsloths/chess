@@ -17,56 +17,56 @@ public class Bishop implements Piece{
 		move++;
 	}
 	public ArrayList<Position> getMoves(Piece[][] board){
-    boolean blocked = false;
+  		boolean blocked = false;
 		ArrayList<Position> m = new ArrayList<Position>();
-    int counterR = pos.getX()-1;
-    int counterC = pos.getY()-1;
+  	  	int counterR = pos.getX()-1;
+	    	int counterC = pos.getY()-1;
 		while(counterR>= 0&&counterC>=0&&!blocked){
-      if(board[counterR][counterC] == null||board[counterR][counterC].bOrW() == !c){
-          m.add(new Position(counterR, counterC));
-      }
-      else{
-          blocked = true;
-      }
-      counterR = counterR--;
-      counterC = counterC--;
-    }
-    counterR = pos.getX()-1;
-    counterC = pos.getY()+1;
-    while(counterR >= 0&&counterC<Cols&&!blocked){
-      if(board[counterR][counterC] == null||board[counterR][counterC].bOrW() == !c){
-          m.add(new Position(counterR, counterC));
-      }
-      else{
-          blocked = true;
-      }
-      counterR = counterR--;
-      counterC = counterC++;
-    }
-    counterR = pos.getX()+1;
-    counterC = pos.getY()+1;
-    while(counterR < Rows&&counterC<Cols&&!blocked){
-      if(board[counterR][counterC] == null||board[counterR][counterC].bOrW() == !c){
-          m.add(new Position(counterR, counterC));
-      }
-      else{
-          blocked = true;
-      }
-      counterR = counterR++;
-      counterC = counterC++;
-    }
-    counterR = pos.getX()+1;
-    counterC = pos.getY()-1;
-    while(counterR < Rows&&counterC>=0&&!blocked){
-      if(board[counterR][counterC] == null||board[counterR][counterC].bOrW() == !c){
-          m.add(new Position(counterR, counterC));
-      }
-      else{
-          blocked = true;
-      }
-      counterR = counterR++;
-      counterC = counterC--;
-    }
+      			if(board[counterR][counterC] == null||board[counterR][counterC].bOrW() == !c){
+          			m.add(new Position(counterR, counterC));
+      			}	
+      			else{
+     			     blocked = true;
+      			}
+    			counterR = counterR--;
+      			counterC = counterC--;
+    		}
+    		counterR = pos.getX()-1;
+    		counterC = pos.getY()+1;
+    		while(counterR >= 0&&counterC<Cols&&!blocked){
+      			if(board[counterR][counterC] == null||board[counterR][counterC].bOrW() == !c){
+          			m.add(new Position(counterR, counterC));
+      			}
+      			else{
+     			     blocked = true;
+      			}
+      			counterR = counterR--;
+      			counterC = counterC++;
+    		}
+    		counterR = pos.getX()+1;
+   		counterC = pos.getY()+1;
+    		while(counterR < Rows&&counterC<Cols&&!blocked){
+      			if(board[counterR][counterC] == null||board[counterR][counterC].bOrW() == !c){
+         			 m.add(new Position(counterR, counterC));
+      			}
+      			else{
+          			blocked = true;
+      			}
+      			counterR = counterR++;
+      			counterC = counterC++;
+    		}
+    		counterR = pos.getX()+1;
+    		counterC = pos.getY()-1;
+    		while(counterR < Rows&&counterC>=0&&!blocked){
+      			if(board[counterR][counterC] == null||board[counterR][counterC].bOrW() == !c){
+          			m.add(new Position(counterR, counterC));
+      			}
+      			else{
+          			blocked = true;
+      			}
+      			counterR = counterR++;
+      			counterC = counterC--;
+    		}
 	}
 	public int getID(){
 		return 4;
