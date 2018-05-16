@@ -1,3 +1,4 @@
+import java.util.*;
 public class Pawn implements Piece{
 	Position pos;
 	boolean alive;
