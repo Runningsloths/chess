@@ -7,7 +7,7 @@ public class King implements Piece{
 		this.col = col;
 		alive = false;
 	}
-	public ArrayList<Position> moves(){
+	public ArrayList<Position> getMoves(){
 		Game game = new Game();
 		Piece[][] board = game.board;
 		ArrayList<Position> moves = new ArrayList<Position>();
@@ -27,6 +27,19 @@ public class King implements Piece{
 			moves.add(board[row+1][col-1]);
 		if(row < 8 && col < 8 && board[row+1][col-1] == null)//Bottom right
 			moves.add(board[row+1][col-1]);
+	}
+	public void move(Position pos){
+		Piece[][] board = new Game().board;
+		if(board[pos.getX()][pos.getY()] == null){
+			board[row][col] = null;
+			row = pos.getX();
+			col = pos.getY();
+		}
+		else{
+			board[row][col] == null;
+			row = pos.getX();
+			col = pos.getY();
+		}			
 	}
 	public Position getPos(){
 		return new Position(row, col);
