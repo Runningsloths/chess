@@ -22,7 +22,7 @@ public class Bishop implements Piece{
     int counterR = pos.getX()-1;
     int counterC = pos.getY()-1;
 		while(counterR>= 0&&counterC>=0&&!blocked){
-      if(board[counterR][counterC] == null){
+      if(board[counterR][counterC] == null||board[counterR][counterC].bOrW() == !c){
           m.add(new Position(counterR, counterC));
       }
       else{
@@ -34,7 +34,7 @@ public class Bishop implements Piece{
     counterR = pos.getX()-1;
     counterC = pos.getY()+1;
     while(counterR >= 0&&counterC<Cols&&!blocked){
-      if(board[counterR][counterC] == null){
+      if(board[counterR][counterC] == null||board[counterR][counterC].bOrW() == !c){
           m.add(new Position(counterR, counterC));
       }
       else{
@@ -46,7 +46,7 @@ public class Bishop implements Piece{
     counterR = pos.getX()+1;
     counterC = pos.getY()+1;
     while(counterR < Rows&&counterC<Cols&&!blocked){
-      if(board[counterR][counterC] == null){
+      if(board[counterR][counterC] == null||board[counterR][counterC].bOrW() == !c){
           m.add(new Position(counterR, counterC));
       }
       else{
@@ -58,7 +58,7 @@ public class Bishop implements Piece{
     counterR = pos.getX()+1;
     counterC = pos.getY()-1;
     while(counterR < Rows&&counterC>=0&&!blocked){
-      if(board[counterR][counterC] == null){
+      if(board[counterR][counterC] == null||board[counterR][counterC].bOrW() == !c){
           m.add(new Position(counterR, counterC));
       }
       else{
