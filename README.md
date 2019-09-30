@@ -1,5 +1,4 @@
 # chess
-Read this Elliot: 冰墙，升起来吧！
 
 Put the Piece interface and all created pieces directly into the MASTER branch.
 
